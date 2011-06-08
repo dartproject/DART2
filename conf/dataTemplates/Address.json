@@ -1,0 +1,55 @@
+{
+    "id"        : "Address",
+    "version"   : "1.0",
+    "fields"    : [
+            {
+                "id"        :   "RefID",
+                "dataType"  :   "Integer",
+                "required"  :   1,
+                "unique"    :   1
+            },
+            {
+                "id"        :   "StreetNumber",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "StreetName",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   1
+            },
+            {
+                "id"        :   "Street Type",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "City",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "StateProvince",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "Country",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "PostalCode",
+                "dataType"  :   "postalCode_US",
+                "required"  :   1,
+                "unique"    :   0
+            }
+
+    ]
+}

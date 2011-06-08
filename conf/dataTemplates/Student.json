@@ -1,0 +1,27 @@
+{
+    "id"        : "Student",
+    "version"   : "1.0",
+    "fields"    : [
+            {
+                "id"        :   "studentID",
+                "label"     :   "Student ID",
+                "dataType"  :   "Integer",
+                "required"  :   1,
+                "unique"    :   1
+            },
+            {
+                "id"        :   "fname",
+                "label"     :   "First Name",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "lname",
+                "label"     :   "Last Name",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            }
+    ]
+}

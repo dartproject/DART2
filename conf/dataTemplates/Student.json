@@ -3,74 +3,47 @@
     "version"   : "1.0",
     "fields"    : [
             {
-                "id"        :   "studentID",
-                "label"     :   "Student ID",
+                "id"        :   "RefID",
                 "dataType"  :   "Integer",
                 "required"  :   1,
                 "unique"    :   1
             },
             {
-                "id"        :   "fname",
-                "label"     :   "First Name",
+                "id"        :   "FirstName",
                 "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   0
             },
             {
-                "id"        :   "lname",
-                "label"     :   "Last Name",
+                "id"        :   "LastName",
                 "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   0
             },
             {
-                "id"        :   "gender",
-                "label"     :   "Gender",
+                "id"        :   "MiddleName",
                 "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   0
             },
             {
-                "id"        :   "birthDate",
-                "label"     :   "Birth Date",
-                "dataType"  :   "date",
+                "id"        :   "PreferredName",
+                "dataType"  :   "string",
+                "required"  :   0,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "Gender",
+                "dataType"  :   "char",
                 "required"  :   1,
                 "unique"    :   0
             },
             {
-                "id"        :   "ethnicity",
-                "label"     :   "Ethnicity",
-                "dataType"  :   "integer",
-                "required"  :   1,
-                "unique"    :   0
-            },
-            {
-                "id"        :   "address",
-                "label"     :   "Address",
+                "id"        :   "OnTimeGraduationYear",
                 "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   0
-            },
-            {
-                "id"        :   "city",
-                "label"     :   "City",
-                "dataType"  :   "string",
-                "required"  :   1,
-                "unique"    :   0
-            },
-            {
-                "id"        :   "postalCode",
-                "label"     :   "Postal Code",
-                "dataType"  :   "string",
-                "required"  :   1,
-                "unique"    :   0
-            },
-            {
-                "id"        :   "CaliforniaID",
-                "label"     :   "CaliforniaID",
-                "dataType"  :   "integer",
-                "required"  :   1,
-                "unique"    :   1
             }
+
     ]
 }

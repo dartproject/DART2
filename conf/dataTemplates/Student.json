@@ -22,6 +22,55 @@
                 "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   0
+            },
+            {
+                "id"        :   "gender",
+                "label"     :   "Gender",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "birthDate",
+                "label"     :   "Birth Date",
+                "dataType"  :   "date",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "ethnicity",
+                "label"     :   "Ethnicity",
+                "dataType"  :   "integer",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "address",
+                "label"     :   "Address",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "city",
+                "label"     :   "City",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "postalCode",
+                "label"     :   "Postal Code",
+                "dataType"  :   "string",
+                "required"  :   1,
+                "unique"    :   0
+            },
+            {
+                "id"        :   "CaliforniaID",
+                "label"     :   "CaliforniaID",
+                "dataType"  :   "integer",
+                "required"  :   1,
+                "unique"    :   1
             }
     ]
 }

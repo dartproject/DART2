@@ -11,16 +11,12 @@
  */
 class DocField {
     private $id;
-    private $label;
     private $dataType;
     private $required;
     private $unique;
-    private $inputType;
-    private $length;
 
-    function  __construct($id, $label, $dataType, $required, $unique) {
+    function  __construct($id, $dataType, $required, $unique) {
         $this->id       = $id;
-        $this->label    = $label;
         $this->dataType = $dataType;
         $this->required = $required;
         $this->unique   = $unique;
@@ -32,14 +28,6 @@ class DocField {
 
     function getID(){
         return $this->id;
-    }
-
-    function setLabel($label){
-        $this->label = $label;
-    }
-
-    function getLabel(){
-        return $this->label;
     }
 
     function setDataType($datatype){
@@ -66,26 +54,9 @@ class DocField {
         return $this->unique;
     }
 
-    function setInputType($inputType){
-        $this->inputType = $inputType;
-    }
-
-    function getInputType(){
-        return $this->inputType;
-    }
-
-    function setLength($length){
-        $this->length = $length;
-    }
-
-    function getLength($length){
-
-    }
-
     function toJSON(){
         $arr = array(   'id'        =>  $this->id,
-                        'label'     =>  $this->label,
-                        'datatype'  =>  $this->dataType,
+                        'dataType'  =>  $this->dataType,
                         'required'  =>  $this->required,
                         'unique'    =>  $this->unique
                     );
@@ -97,8 +68,7 @@ class DocField {
         $object = json_decode($json,true);
 
         $this->id       = $object["id"];
-        $this->label    = $object["label"];
-        $this->dataType = $object["datatype"];
+        $this->dataType = $object["dataType"];
         $this->required = $object["required"];
         $this->unique   = $object["unique"];
 
@@ -107,8 +77,7 @@ class DocField {
 
     function  __toString() {
         return   "id: "         . $this->id
-               . ", label: "    . $this->label
-               . ", datatype: " . $this->dataType
+               . ", dataType: " . $this->dataType
                . ", required: " . $this->required
                . ", unique: "   . $this->unique;
     }

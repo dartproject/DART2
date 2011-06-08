@@ -45,6 +45,8 @@ class Document {
         $this->fields = $fields;
     }
 
+
+    //Read from JSON
     function fromJSON($json){
         $object = json_decode($json,true);
         

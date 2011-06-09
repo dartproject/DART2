@@ -23,7 +23,7 @@ abstract class DAO {
 		$document->fromJSON($content);
 		$this->fields = $document->getFields();
 		$db = DB::connectDB(); 
-		$this->collection = $db->$collection;
+		$this->collection = DB::con2col($collection);
 	}
 
 	/**

@@ -42,7 +42,8 @@
 
     echo var_dump($newList->getValues());
 
-    echo var_dump(ValueListDAO::getAvailableLists());
-
+    $result = ValueListDAO::getAvailableLists();
+    echo var_dump($result);
+    echo $result[0]['_id'];
     
 ?>

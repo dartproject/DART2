@@ -57,7 +57,6 @@ class Document {
 
         for($i=0;$i<count($fields);$i++){
             $this->fields[$i]=new DocField($fields[$i]["id"],
-                                    $fields[$i]["label"],
                                     $fields[$i]["dataType"],
                                     $fields[$i]["required"],
                                     $fields[$i]["unique"]);

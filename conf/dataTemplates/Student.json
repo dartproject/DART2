@@ -1,5 +1,5 @@
 {
-    "id"        : "Student",
+    "name"      : "Student",
     "version"   : "1.0",
     "fields"    : [
             {

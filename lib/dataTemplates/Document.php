@@ -10,30 +10,73 @@
  * @author Bolek
  */
 
+require_once "TemplateNotFoundException.php";
+require_once "TemplateWrongFormatException.php";
+require_once "DocFieldFactory";
 
 class Document {
-    private $id;
-    private $version;
+    private $structName;
+    private $structVersion;
     private $fields;
 
-    function  __construct() {
+    CONST STRUCTURE_TEMPLATES_PATH = "/DARTLib/conf/dataTemplates/";
+
+
+    function  __construct($object,$structName) {
+        $template = $_SERVER['DOCUMENT_ROOT'] . self::STRUCTURE_TEMPLATES_PATH . 
+            $structNameName . ".json";
         
+        if(!file_exists($template))
+            throw new TemplateNotFoundException("Template " . $structName .
+                    " not found");
+            
+        $json = file_get_contents($template);
+
+        $struct = json_decode($json,true);
+
+        if(isset($struct["name"]))
+            $this->structName = $struct["name"];
+        else
+            throw new TemplateWrongFormatException(
+                    "Name of strcuture not found: 'name'");
+
+        if(isset($struct["version"]))
+            $this->structVersion = $struct["version"];
+        else
+            throw new TemplateWrongFormatException (
+                    "Version of structure not found: 'version')");
+
+        foreach($struct["fields"] as $fStruct){
+            //if field exists in received object - create new field
+            if(isset($object[$fStruct["key"]]))
+                array_push ($this->fields, 
+                        DocFieldFactory::createDocField ($fStruct,
+                        $object[$fStruct["key"]]));
+        }
+    }
+    
+    function validate(){
+        foreach($fields as $field){
+            if(!$field->validate())
+                    return false;
+        }
+        return true;
     }
 
 
-    function getID(){
-        return $this->id;
+    function getStructureName(){
+        return $this->structName;
     }
 
-    function setID($id){
-        $this->id =(string) $id;
+    function setStructureName($structName){
+        $this->id =(string) $structName;
     }
 
-    function getVersion(){
+    function getStructureVersion(){
         return $this->version;
     }
 
-    function setVersion($version){
+    function setStructureVersion($version){
         $this->version = (string)$version;
     }
 
@@ -45,24 +88,6 @@ class Document {
         $this->fields = $fields;
     }
 
-
-    //Read from JSON
-    function fromJSON($json){
-        $object = json_decode($json,true);
-        
-        $this->id = $object["id"];
-        $this->version = $object["version"];
-
-        $fields = $object["fields"];
-
-        for($i=0;$i<count($fields);$i++){
-            $this->fields[$i]=new DocField($fields[$i]["id"],
-                                    $fields[$i]["dataType"],
-                                    $fields[$i]["required"],
-                                    $fields[$i]["unique"]);
-        }
-    }
-
     function  __toString() {
         $result="Document Properties <BR/>";
         $result .= "id: " . $this->id . ", version: " . $this->version ."<br/><br/>";
@@ -72,6 +97,15 @@ class Document {
         }
 
         return $result;
+    }
+
+    function getValue(){
+        $obj = array();
+        foreach($fields as $field){
+            $obj[$field->getKey()]=$field->getValue();
+        }
+
+        return $obj;
     }
 }
 ?>

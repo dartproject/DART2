@@ -20,6 +20,7 @@ class DB {
 
                     self::$m = new Mongo("mongodb://" . self::DB_ADDRESS, array("persist"=>"x"));
                     $db=self::$m->selectDB(self::DB_NAME);
+                    
                 }catch(MongoConnectionException $e){
                     die('Error connecting to MongoDB Server');
                 }catch(MongoException $e){
@@ -28,13 +29,17 @@ class DB {
 		
 		return $db;
 	}
-	
+
+
+        //connect to collection
 	static function con2col($collection){
 		$db = self::connectDB();
                 $collection = $db->selectCollection($collection);
                 return $collection;
 	}
 
+
+        //close connection
 	static function closeDB() {
 		self::$m->close();
 	}

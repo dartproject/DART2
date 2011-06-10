@@ -10,8 +10,9 @@
  */
 
 require_once 'DB.php';
+require_once 'DAO.php';
 
-class ValueListDAO {
+class ValueListDAO extends DAO {
     private $name;
     private $values;
 

@@ -1,10 +1,10 @@
 {
-    "id"        : "Student",
+    "name"      : "Student",
     "version"   : "1.0",
     "fields"    : [
             {
-                "id"        :   "RefID",
-                "dataType"  :   "Integer",
+                "id"        :   "_id",
+                "dataType"  :   "string",
                 "required"  :   1,
                 "unique"    :   1
             },
